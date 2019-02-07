@@ -333,11 +333,7 @@ def main():
     elif state == 'absent':
         command.extend(DESTROY_ARGS)
 
-    if module.params.get('lock') is not None:
-        if module.params.get('lock'):
-            command.append('-lock=true')
-        else:
-            command.append('-lock=true')
+    command.append('-lock=true') if module.params.get('lock') else command.append('-lock=false')
     if module.params.get('lock_timeout') is not None:
         command.append('-lock-timeout=%ds' % module.params.get('lock_timeout'))
 

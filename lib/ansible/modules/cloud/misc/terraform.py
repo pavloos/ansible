@@ -161,9 +161,7 @@ command:
 import os
 import json
 import tempfile
-import traceback
 from ansible.module_utils.six.moves import shlex_quote
-
 from ansible.module_utils.basic import AnsibleModule
 
 DESTROY_ARGS = ('destroy', '-no-color', '-force')

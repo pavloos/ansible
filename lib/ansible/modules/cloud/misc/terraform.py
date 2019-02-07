@@ -335,7 +335,7 @@ def main():
 
     command.append('-lock=true') if module.params.get('lock') else command.append('-lock=false')
     if module.params.get('lock_timeout') is not None:
-        command.append('-lock-timeout=%ds' % module.params.get('lock_timeout'))
+        command.append('-lock-timeout={0}s'.format(module.params.get('lock_timeout')))
 
     for t in (module.params.get('targets') or []):
         command.extend(['-target', t])
